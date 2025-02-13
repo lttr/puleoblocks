@@ -5,12 +5,37 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "format": "prettier --write .",
     "generate": "nuxt generate",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "postinstall": "nuxt prepare",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "start": "node .output/server/index.mjs",
+    "typecheck": "nuxi typecheck"
   },
+  "packageManager": "pnpm@10.3.0",
   "dependencies": {
+    "@lttr/puleo": "^0.5.0",
     "nuxt": "^3.15.4",
     "vue": "latest"
+  },
+  "devDependencies": {
+    "@iconify-json/uil": "^1.2.3",
+    "@lttr/nuxt-config-eslint": "^0.3.0",
+    "@lttr/nuxt-config-postcss": "^0.0.8",
+    "@nuxt/eslint": "^1.0.1",
+    "@nuxt/fonts": "^0.10.3",
+    "@nuxt/icon": "^1.10.3",
+    "@nuxt/image": "^1.9.0",
+    "@nuxtjs/plausible": "^1.2.0",
+    "@nuxtjs/seo": "^2.1.1",
+    "@total-typescript/ts-reset": "^0.6.1",
+    "@vueuse/core": "^12.5.0",
+    "@vueuse/nuxt": "^12.5.0",
+    "eslint": "^9.20.1",
+    "prettier": "^3.5.1",
+    "typescript": "^5.7.3",
+    "vue-tsc": "^2.2.0"
   }
 }
