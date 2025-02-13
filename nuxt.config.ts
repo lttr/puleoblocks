@@ -8,27 +8,25 @@ export default defineNuxtConfig({
     "@nuxtjs/plausible",
     "@nuxtjs/seo",
     "@vueuse/nuxt",
+    "@nuxtjs/color-mode",
   ],
-  devtools: { enabled: true },
   components: [
     {
       path: "~/components",
       pathPrefix: false,
     },
   ],
+  devtools: { enabled: true },
   css: ["@lttr/puleo", "~/assets/css/main.css"],
-  eslint: {
-    config: {
-      nuxt: {
-        sortConfigKeys: true,
-      },
-    },
-  },
   site: {
     url: "https://example.com",
     name: "Website name",
     description: "Website description",
     defaultLocale: "en",
+  },
+  colorMode: {
+    classPrefix: "is-",
+    classSuffix: "",
   },
   future: {
     compatibilityVersion: 4,
@@ -37,6 +35,13 @@ export default defineNuxtConfig({
     typedPages: true,
   },
   compatibilityDate: "2025-02-01",
+  eslint: {
+    config: {
+      nuxt: {
+        sortConfigKeys: true,
+      },
+    },
+  },
   lttrConfigPostcss: {
     filesWithGlobals: ["./node_modules/@lttr/puleo/output/media.css"],
   },
@@ -45,3 +50,4 @@ export default defineNuxtConfig({
     apiHost: "https://plausible.lttr.cz",
   },
 })
+

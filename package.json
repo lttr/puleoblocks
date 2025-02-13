@@ -28,6 +28,7 @@
     "@nuxt/fonts": "^0.10.3",
     "@nuxt/icon": "^1.10.3",
     "@nuxt/image": "^1.9.0",
+    "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/plausible": "^1.2.0",
     "@nuxtjs/seo": "^2.1.1",
     "@total-typescript/ts-reset": "^0.6.1",
