@@ -44,11 +44,17 @@ function chooseColor(e: Event) {
 }
 
 onMounted(() => {
-  document.documentElement.style.setProperty("--brand-color", INITIAL_COLOR)
+  document.documentElement.style.setProperty(
+    "--brand-color",
+    colors[INITIAL_COLOR],
+  )
 })
 </script>
 
 <style scoped>
+:global(:root) {
+  --brand-color: #4f46e5;
+}
 .brand-color-picker {
   --indigo-6: #4f46e5;
   --orange-6: #f97316;

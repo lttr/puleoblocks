@@ -10,9 +10,6 @@
 <script lang="ts" setup></script>
 
 <style scoped>
-label {
-  color: var(--gray-2);
-}
 select {
   color: var(--gray-10);
   background-color: var(--gray-2);
