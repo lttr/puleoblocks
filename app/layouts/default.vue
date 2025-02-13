@@ -51,4 +51,10 @@ h1 {
 .wrapper {
   display: flex;
 }
+
+main {
+  width: 100%;
+  min-height: calc(100vh - 3.5rem);
+  overflow-y: auto;
+}
 </style>
