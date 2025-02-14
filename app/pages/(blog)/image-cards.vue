@@ -6,8 +6,8 @@
       category="Shooting Stars"
       title="Shooting Stars"
       description="Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat."
-      views="1.2K"
-      comments="6"
+      :views="1.2"
+      :comments="6"
       href="#"
     />
     <ImageCard
@@ -16,8 +16,8 @@
       category="Shooting Stars"
       title="Shooting Stars"
       description="Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat."
-      views="1.2K"
-      comments="6"
+      :views="1.2"
+      :comments="6"
       href="#"
     />
     <ImageCard
@@ -26,13 +26,17 @@
       category="Shooting Stars"
       title="Shooting Stars"
       description="Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat."
-      views="1.2K"
-      comments="6"
+      :views="1.2"
+      :comments="6"
       href="#"
     />
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+definePageMeta({
+  code: "ImageCard.vue",
+})
+</script>
 
 <style scoped></style>
