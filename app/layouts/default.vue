@@ -3,24 +3,28 @@
     <header>
       <div class="p-cluster">
         <button @click="() => toggleNav()"><Icon name="uil:bars" /></button>
-        <h1>PuleoBlocks</h1>
+        <NuxtLink to="/" class="home"><h1>PuleoBlocks</h1></NuxtLink>
       </div>
       <div class="p-cluster">
         <BrandColorPicker />
+        <DevicePicker v-model="device" />
         <ThemePicker />
       </div>
     </header>
     <div class="wrapper">
       <MainNavigation :is-nav-open class="nav" />
-      <main>
+      <WrapperDevice :device>
         <slot></slot>
-      </main>
+      </WrapperDevice>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import type { Device } from "~/components/DevicePicker.vue"
+
 const [isNavOpen, toggleNav] = useToggle(false)
+const device = ref<Device>("desktop")
 </script>
 
 <style scoped>
@@ -32,6 +36,10 @@ header {
   padding: var(--space-2) var(--space-3);
   background-color: var(--brand-color);
   height: 3.5rem;
+}
+
+.home {
+  color: var(--text-color-1);
 }
 
 button {
@@ -56,5 +64,8 @@ main {
   width: 100%;
   min-height: calc(100vh - 3.5rem);
   overflow-y: auto;
+  padding-block: var(--space-5);
+  display: grid;
+  place-items: center;
 }
 </style>

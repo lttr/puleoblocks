@@ -1,3 +1,5 @@
+import type { NuxtPage } from "nuxt/schema"
+
 export default defineNuxtConfig({
   modules: [
     "@lttr/nuxt-config-postcss",
@@ -13,6 +15,11 @@ export default defineNuxtConfig({
   components: [
     {
       path: "~/components",
+      pathPrefix: false,
+    },
+    {
+      path: "~/pages",
+      pattern: "*/components/**",
       pathPrefix: false,
     },
   ],
@@ -35,6 +42,20 @@ export default defineNuxtConfig({
     typedPages: true,
   },
   compatibilityDate: "2025-02-01",
+  hooks: {
+    "pages:extend"(pages) {
+      const pagesToRemove: NuxtPage[] = []
+      pages.forEach((page) => {
+        if (page.path.includes("component")) {
+          pagesToRemove.push(page)
+        }
+      })
+
+      pagesToRemove.forEach((page: NuxtPage) => {
+        pages.splice(pages.indexOf(page), 1)
+      })
+    },
+  },
   eslint: {
     config: {
       nuxt: {
