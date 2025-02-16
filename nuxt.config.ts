@@ -18,6 +18,11 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
     {
+      path: "~/components/thumbnails",
+      global: true,
+      pathPrefix: false,
+    },
+    {
       path: "~/pages",
       pattern: "*/components/**",
       pathPrefix: false,
@@ -71,4 +76,3 @@ export default defineNuxtConfig({
     apiHost: "https://plausible.lttr.cz",
   },
 })
-

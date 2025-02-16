@@ -21,7 +21,9 @@ const sourceCodeHighlighted = ref<string>("")
 
 onMounted(async () => {
   try {
-    const module = await import(`./(blog)/components/${route.query.for}?raw`)
+    const module = await import(
+      `./block/components/${route.query.for}.vue?raw`
+    )
     const source = module.default
     sourceCode.value = source
     sourceCodeHighlighted.value = await codeToHtml(source, {

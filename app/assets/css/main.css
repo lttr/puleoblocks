@@ -1,5 +1,6 @@
 :root {
   --font-family-body: "DM Sans", sans-serif;
+  --link-color: var(--brand-color);
 }
 
 body {

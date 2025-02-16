@@ -6,11 +6,9 @@
         <NuxtLink to="/" class="home"><h1>PuleoBlocks</h1></NuxtLink>
       </div>
       <div class="p-cluster">
-        <NuxtLink class="view-code" :to="viewCodeUrl"
-          ><Icon name="uil:code" />View code</NuxtLink
-        >
-        <BrandColorPicker />
-        <DevicePicker v-model="device" />
+        <ViewCodeButton class="view-code" />
+        <BrandColorPicker class="brand-color-picker" />
+        <DevicePicker v-model="device" class="device-picker" />
         <ThemePicker />
       </div>
     </header>
@@ -28,9 +26,6 @@ import type { Device } from "~/components/DevicePicker.vue"
 
 const [isNavOpen, toggleNav] = useToggle(false)
 const device = ref<Device>("desktop")
-
-const route = useRoute()
-const viewCodeUrl = computed(() => `view-code?for=${route.meta.code}`)
 </script>
 
 <style scoped>
@@ -46,24 +41,6 @@ header {
 
 .home {
   color: var(--gray-1);
-}
-
-.view-code {
-  display: flex;
-  align-items: center;
-  gap: var(--space-1);
-  border: var(--border-size-1) solid var(--gray-1);
-  border-radius: var(--radius-round);
-  color: var(--gray-1);
-  font-size: var(--font-size--1);
-  padding-inline: var(--space-2);
-  padding-block: 2px;
-  font-weight: var(--font-weight-6);
-
-  &:hover {
-    text-decoration: none;
-    opacity: 0.8;
-  }
 }
 
 button {
@@ -91,5 +68,21 @@ main {
   padding-block: var(--space-5);
   display: grid;
   place-items: center;
+}
+
+.p-cluster {
+  --cluster-space: var(--space-4);
+}
+
+.device-picker {
+  @media (--md-n-below) {
+    display: none;
+  }
+}
+
+:is(.brand-color-picker, .view-code) {
+  @media (--md-n-below) {
+    display: none;
+  }
 }
 </style>
