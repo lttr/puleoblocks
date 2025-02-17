@@ -45,7 +45,7 @@ defineProps<Props>()
   flex-direction: column;
   max-width: var(--size-content-2);
   background: var(--surface-0);
-  border: var(--border-size-2) solid var(--surface-1);
+  border: var(--border-size-2) solid var(--surface-2);
   border-radius: var(--radius-2);
   overflow: hidden;
 }

@@ -1,6 +1,37 @@
 :root {
   --font-family-body: "DM Sans", sans-serif;
   --link-color: var(--brand-color);
+  --brand-color: light-dark(var(--indigo-6), var(--indigo-5));
+
+  /* colors */
+  --blue-5: #339af0;
+  --blue-6: #2563eb;
+  --green-5: #51cf66;
+  --green-6: #16a34a;
+  --indigo-5: #5c7cfa;
+  --indigo-6: #4f46e5;
+  --orange-5: #ff922b;
+  --orange-6: #f97316;
+  --pink-5: #f06595;
+  --pink-6: #e11d48;
+  --purple-5: #cc5de8;
+  --purple-6: #9333ea;
+
+  --indigo: var(--indigo-6);
+  --orange: var(--orange-6);
+  --green: var(--green-6);
+  --purple: var(--purple-6);
+  --pink: var(--pink-6);
+  --blue: var(--blue-6);
+
+  @media (--OSdark) {
+    --indigo: var(--indigo-5);
+    --orange: var(--orange-5);
+    --green: var(--green-5);
+    --purple: var(--purple-5);
+    --pink: var(--pink-5);
+    --blue: var(--blue-5);
+  }
 }
 
 body {

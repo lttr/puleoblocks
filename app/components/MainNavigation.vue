@@ -42,8 +42,7 @@ const blockRoutes = computed(() =>
   overflow-y: auto;
   box-shadow: var(--shadow-4);
   background-color: var(--surface-2);
-  padding-block: var(--space-4);
-  padding-inline: var(--space-3);
+  padding: var(--space-3);
 }
 
 .open {
@@ -56,6 +55,7 @@ const blockRoutes = computed(() =>
   gap: var(--space-1);
   font-size: var(--font-size--1);
   color: var(--text-color-2);
+  width: 100%;
 }
 
 .thumbnail {
@@ -71,18 +71,18 @@ const blockRoutes = computed(() =>
   border: var(--border-size-2) solid transparent;
 
   .router-link-active & {
-    --shadow-color: var(--brand-color);
     border: var(--border-size-2) solid var(--brand-color);
   }
 
   > * {
-    object-fit: contain;
+    height: 100%;
+    width: auto;
   }
 }
 
 .view-code {
-  color: var(--text-color-1);
-  border-color: var(--text-color-1);
+  color: var(--text-color-2);
+  border-color: var(--text-color-2);
 }
 
 .brand-color-picker {

@@ -1,5 +1,5 @@
 <template>
-  <div class="brand-color-picker">
+  <div ref="brandColorPicker" class="brand-color-picker">
     <button class="indigo" @click="chooseColor">
       <Icon v-if="currentColor === 'indigo'" name="uil:check" />
     </button>
@@ -22,47 +22,27 @@
 </template>
 
 <script lang="ts" setup>
-const colors = {
-  indigo: "#4f46e5",
-  orange: "#f97316",
-  green: "#16a34a",
-  purple: "#9333ea",
-  pink: "#e11d48",
-  blue: "#2563eb",
-}
+type Color = "indigo" | "orange" | "green" | "purple" | "pink" | "blue"
 
 const INITIAL_COLOR = "indigo"
+const currentColor = ref<Color>(INITIAL_COLOR)
 
-const currentColor = ref<keyof typeof colors>(INITIAL_COLOR)
+const brandColorPicker = templateRef<HTMLDivElement>("brandColorPicker")
 
 function chooseColor(e: Event) {
   const colorName = (e.target as HTMLButtonElement).className
-  currentColor.value = colorName as keyof typeof colors
-
-  const colorValue = colors[colorName as keyof typeof colors]
-  document.documentElement.style.setProperty("--brand-color", colorValue)
+  currentColor.value = colorName as Color
+  refreshColor(currentColor.value)
 }
 
-onMounted(() => {
-  document.documentElement.style.setProperty(
-    "--brand-color",
-    colors[INITIAL_COLOR],
-  )
-})
+function refreshColor(colorName: Color): void {
+  const value = `light-dark(var(--${colorName}-6), var(--${colorName}-5))`
+  document.documentElement.style.setProperty("--brand-color", value)
+}
 </script>
 
 <style scoped>
-:global(:root) {
-  --brand-color: #4f46e5;
-}
 .brand-color-picker {
-  --indigo-6: #4f46e5;
-  --orange-6: #f97316;
-  --green-6: #16a34a;
-  --purple-6: #9333ea;
-  --pink-6: #e11d48;
-  --blue-6: #2563eb;
-
   background-color: white;
   padding-inline: var(--space-3);
   padding-block: var(--space-1);
@@ -85,26 +65,26 @@ onMounted(() => {
 }
 
 .indigo {
-  background-color: var(--indigo-6);
+  background-color: var(--indigo);
 }
 
 .orange {
-  background-color: var(--orange-6);
+  background-color: var(--orange);
 }
 
 .green {
-  background-color: var(--green-6);
+  background-color: var(--green);
 }
 
 .purple {
-  background-color: var(--purple-6);
+  background-color: var(--purple);
 }
 
 .pink {
-  background-color: var(--pink-6);
+  background-color: var(--pink);
 }
 
 .blue {
-  background-color: var(--blue-6);
+  background-color: var(--blue);
 }
 </style>
