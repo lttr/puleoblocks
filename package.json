@@ -14,7 +14,7 @@
     "start": "node .output/server/index.mjs",
     "typecheck": "nuxi typecheck"
   },
-  "packageManager": "pnpm@10.3.0",
+  "packageManager": "pnpm@10.17.1",
   "dependencies": {
     "@lttr/puleo": "^0.5.0",
     "nuxt": "^3.15.4",
